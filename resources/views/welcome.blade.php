@@ -216,6 +216,9 @@
 </head>
 
 <body>
+    @php
+        $pengumuman = \App\Models\Pengumuman::orderBy('id', 'asc')->get();
+    @endphp
     <!-- Spinner Start -->
     <div id="spinner"
         class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -434,68 +437,26 @@
                 <div class="section-title text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
                     <h2 class="display-6 mb-4">Berita UIN Sunan Gunung Djati Bandung</h2>
                 </div>
+
                 <div class="row g-4 justify-content-center">
+                    @foreach ($pengumuman as $item)
                     <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="office-item p-4">
                             <div class="office-img mb-4">
-                                <img src="{{ asset('img/office-2.jpg') }}" class="img-fluid w-100 rounded"
+                                <img src="{{asset('/images/pengumuman/' . $item->foto)}}" class="img-fluid w-100 rounded"
                                     alt="">
                             </div>
                             <div class="office-content d-flex flex-column">
-                                <h4 class="mb-2">Australia</h4>
+                                <h4 class="mb-2">{{$item->judul_pengumuman}}</h4>
                                 <a href="#" class="text-secondary fs-5 mb-2">+123.456.7890</a>
                                 <a href="#" class="text-muted fs-5 mb-2">travisa@example.com</a>
-                                <p class="mb-0">123, First Floor, 123 St Roots Terrace, Los Angeles 90010 Unitd
-                                    States of America.</p>
+                                <p class="mb-0">{{$item->deskripsi_pengumuman}}</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="office-item p-4">
-                            <div class="office-img mb-4">
-                                <img src="{{ asset('img/office-1.jpg') }}" class="img-fluid w-100 rounded"
-                                    alt="">
-                            </div>
-                            <div class="office-content d-flex flex-column">
-                                <h4 class="mb-2">Canada</h4>
-                                <a href="#" class="text-secondary fs-5 mb-2">(012) 0345 6789</a>
-                                <a href="#" class="text-muted fs-5 mb-2">travisa@example.com</a>
-                                <p class="mb-0">123, First Floor, 123 St Roots Terrace, Los Angeles 90010 Unitd
-                                    States of America.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="office-item p-4">
-                            <div class="office-img mb-4">
-                                <img src="{{ asset('img/office-3.jpg') }}" class="img-fluid w-100 rounded"
-                                    alt="">
-                            </div>
-                            <div class="office-content d-flex flex-column">
-                                <h4 class="mb-2">United Kingdom</h4>
-                                <a href="#" class="text-secondary fs-5 mb-2">01234.567.890</a>
-                                <a href="#" class="text-muted fs-5 mb-2">travisa@example.com</a>
-                                <p class="mb-0">123, First Floor, 123 St Roots Terrace, Los Angeles 90010 Unitd
-                                    States of America.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
-                        <div class="office-item p-4">
-                            <div class="office-img mb-4">
-                                <img src="{{ asset('img/office-4.jpg') }}" class="img-fluid w-100 rounded"
-                                    alt="">
-                            </div>
-                            <div class="office-content d-flex flex-column">
-                                <h4 class="mb-2">India</h4>
-                                <a href="#" class="text-secondary fs-5 mb-2">+123.45.67890</a>
-                                <a href="#" class="text-muted fs-5 mb-2">travisa@example.com</a>
-                                <p class="mb-0">123, First Floor, 123 St Roots Terrace, Los Angeles 90010 Unitd
-                                    States of America.</p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
+
             </div>
         </div>
     </div>

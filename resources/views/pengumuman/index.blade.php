@@ -26,7 +26,7 @@
                         <tr>
                             <td>{{ $no++ }}</td>
                             <td>{{ $item->judul_pengumuman }}</td>
-                            <td>{{ $item->deskripsi_pengumuman }}</td>
+                            <td>{!! $item->deskripsi_pengumuman !!}</td>
                             <td><img src="{{ asset('/images/pengumuman/' . $item->foto) }}" style="width: 100px;" alt=""></td>
                             <td>
                                 <div class="btn-group">
@@ -36,6 +36,9 @@
                                         <i class="bx bx-dots-vertical-rounded"></i>
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-end">
+                                        <form action="{{ route('pengumuman.destroy', $item->id) }}" method="POST" class="d-inline">
+                                            @method('DELETE')
+                                            @csrf
                                         <li>
                                             <a href="{{ route('pengumuman.edit', $item->id) }}" class="dropdown-item">Edit</a>
                                         </li>
@@ -44,12 +47,10 @@
                                         </li>
                                         <!-- Formulir untuk hapus -->
                                         <li>
-                                            <form action="{{ route('pengumuman.destroy', $item->id) }}" method="POST" class="d-inline">
-                                                @method('DELETE')
-                                                @csrf
-                                                <button type="submit" class="dropdown-item" onclick="return confirm('Are you sure you want to delete this item?')">Delete</button>
-                                            </form>
+                                                <button type="submit" class="dropdown-item" data-confirm-delete="true">Delete</button>
+
                                         </li>
+                                    </form>
                                     </ul>
                                 </div>
                             </td>

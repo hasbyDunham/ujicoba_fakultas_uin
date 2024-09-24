@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Pengumuman;
 use Illuminate\Http\Request;
+Use Alert;
+
+
 
 class PengumumanController extends Controller
 {
@@ -47,6 +50,8 @@ class PengumumanController extends Controller
             $pengumuman->foto = $name;
         }
 
+
+
         $pengumuman->save();
         return redirect()->route('pengumuman.index')
         ->with('success','data berhasil ditambahkan');
@@ -55,9 +60,10 @@ class PengumumanController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Pengumuman $pengumuman)
+    public function show($id)
     {
-        //
+        $pengumuman = Pengumuman::FindOrFail($id);
+        return view('pengumuman.show', compact('pengumuman'));
     }
 
     /**
@@ -101,8 +107,11 @@ class PengumumanController extends Controller
      */
     public function destroy($id)
     {
+
+
         $pengumuman = Pengumuman::FindOrFail($id);
         $pengumuman->delete();
+
         // $produk->kategori()->detach();
         return redirect()->route('pengumuman.index')
             ->with('success', 'data berhasil dihapus');

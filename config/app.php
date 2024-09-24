@@ -105,6 +105,14 @@ return [
         ),
     ],
 
+    // 'providers' => [
+    // /*
+    // * Package Service Providers...
+    // */
+    // RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+    // ],
+
+
     /*
     |--------------------------------------------------------------------------
     | Maintenance Mode Driver
@@ -117,6 +125,10 @@ return [
     | Supported drivers: "file", "cache"
     |
     */
+
+    // 'aliases' => [
+    //     'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+    // ],
 
     'maintenance' => [
         'driver' => env('APP_MAINTENANCE_DRIVER', 'file'),

@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 
 <!-- =========================================================
@@ -27,12 +29,12 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Dashboard - Analytics | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>Dashboard | Fakultas UIN</title>
 
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{asset('backend/assets/img/favicon/favicon.ico')}}" />
+    <link rel="icon" type="image/x-icon" href="{{asset('backend/assets/img/logo doang.png')}}" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -55,6 +57,7 @@
 
     <link rel="stylesheet" href="{{asset('backend/assets/vendor/libs/apex-charts/apex-charts.css')}}" />
 
+
     <!-- Page CSS -->
 
     {{-- icon --}}
@@ -62,12 +65,21 @@
     <!-- Helpers -->
     <script src="{{asset('backend/assets/vendor/js/helpers.js')}}"></script>
 
+    {{-- ckeditor --}}
+    <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/43.1.0/ckeditor5.css" />
+
+    {{-- toast --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{asset('backend/assets/js/config.js')}}"></script>
   </head>
 
   <body>
+
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container">
@@ -83,6 +95,7 @@
           <div class="content-wrapper">
             <!-- Content -->
             @yield('content')
+
             <!-- / Content -->
 
             <!-- Footer -->
@@ -121,7 +134,44 @@
     <!-- Page JS -->
     <script src="{{asset('backend/assets/js/dashboards-analytics.js')}}"></script>
 
+    {{-- toastr --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    {{-- @include('sweetalert::alert') --}}
+
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/43.1.0/ckeditor5.umd.js"></script>
+    <script>
+        const {
+            ClassicEditor,
+            Essentials,
+            Bold,
+            Italic,
+            Font,
+            Paragraph
+        } = CKEDITOR;
+
+        ClassicEditor
+            .create( document.querySelector( '#deskripsi_pengumuman' ), {
+                plugins: [ Essentials, Bold, Italic, Font, Paragraph ],
+                toolbar: [
+                    'undo', 'redo', '|', 'bold', 'italic', '|',
+                    'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+                ]
+            } )
+            .then( /* ... */ )
+            .catch( /* ... */ );
+    </script>
+
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
   </body>
+
+  <script>
+    @if (Session::has('success'))
+    toastr.success("{{Session::get('success')}}")
+    @endif
+  </script>
 </html>
+
+

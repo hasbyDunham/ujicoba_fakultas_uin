@@ -24,7 +24,7 @@
                             <th scope="row">{{ $loop->index+1 }}</th>
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->email }}</td>
-                            <td>{{ $item->is_admin ? 'Admin' : 'User' }}</td>
+                            <td>{{ $item->is_admin ? 'Admin' : 'Admin' }}</td>
                             <td>
                                 {{-- <div class="btn-group">
                                     <button type="button"

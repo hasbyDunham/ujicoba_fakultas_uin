@@ -21,5 +21,12 @@ Route::group(['prefix'=>'admin', 'middleware'=>['auth']],function(){
     Route::resource('user', UserController::class);
     Route::resource('home', HomeController::class);
     Route::resource('pengumuman', PengumumanController::class);
+    Route::resource('berita', BeritaController::class);
+
 });
 
+Route::get('ck', function () {
+    return view('ck');
+});
+
+// Route::get('/comments', [CommentController::class, 'index']);

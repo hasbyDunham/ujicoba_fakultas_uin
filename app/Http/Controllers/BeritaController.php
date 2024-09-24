@@ -4,15 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\Berita;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class BeritaController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $berita = Berita::latest()->get();
+        $response = Http::get('https://uinsgd.ac.id/wp-json/wp/v2/posts');
+        $berita = $response->json(); // Mengambil data sebagai array
         return view('berita.index', compact('berita'));
     }
 
