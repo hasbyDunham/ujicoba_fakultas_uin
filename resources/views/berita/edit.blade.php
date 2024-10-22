@@ -9,21 +9,21 @@
       <div class="col-xxl">
         <div class="card mb-4">
           <div class="card-header d-flex align-items-center justify-content-between">
-            <h5 class="mb-0">Edit Data Pengumuman</h5>
-            <a href="{{route('pengumuman.index')}}" class="btn btn-sm btn-primary" style="float: right">Kembali</a>
+            <h5 class="mb-0">Edit Data Berita</h5>
+            <a href="{{route('berita.index')}}" class="btn btn-sm btn-primary" style="float: right">Kembali</a>
           </div>
 
           <div class="card-body">
-            <form action="{{route('pengumuman.update', $pengumuman->id)}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('berita.update', $berita->id)}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
               <div class="row mb-3">
-                <label class="col-sm-2 col-form-label" for="basic-default-name">Judul pengumuman</label>
+                <label class="col-sm-2 col-form-label" for="basic-default-name">Judul Berita</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control @error('judul_pengumuman') is-invalid @enderror"
-                    value="{{ old('judul_pengumuman', $pengumuman->judul_pengumuman) }}"
-                    name="judul_pengumuman" id="judul_pengumuman">
-                @error('judul_pengumuman')
+                    <input type="text" class="form-control @error('judul_berita') is-invalid @enderror"
+                    value="{{ old('judul_berita', $berita->judul_berita) }}"
+                    name="judul_berita" id="judul_berita">
+                @error('judul_berita')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
@@ -36,9 +36,9 @@
                     {{-- <input type="text" id="editor" class="form-control @error('deskripsi_pengumuman') is-invalid @enderror"
                     value="{{ old('deskripsi_pengumuman', $pengumuman->deskripsi_pengumuman) }}"
                     name="deskripsi_pengumuman"> --}}
-                    <textarea name="deskripsi_pengumuman" id="deskripsi_pengumuman" cols="30" rows="10"
-                     >{{$pengumuman->deskripsi_pengumuman}}</textarea>
-                @error('deskripsi_pengumuman')
+                    <textarea name="deskripsi" id="deskripsi_pengumuman" cols="30" rows="10"
+                     >{{$berita->deskripsi}}</textarea>
+                @error('deskripsi')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
@@ -47,8 +47,8 @@
               </div>
               <div class="mb-2">
                 <label for="">Image</label>
-                @if($pengumuman->foto)
-                <p><img src="{{ asset('image/pengumuman/' . $pengumuman->foto) }}" alt="Foto" width="100px"></p>
+                @if($berita->foto)
+                <p><img src="{{ asset('image/berita/' . $berita->foto) }}" alt="Foto" width="100px"></p>
                 @endif
                 <input type="file" name="foto" id="foto" class="form-control @error('foto') is-invalid @enderror">
                 @error('foto')

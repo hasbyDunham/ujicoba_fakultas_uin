@@ -10,18 +10,18 @@
             <div class="card mb-4">
                 <div class="card-header d-flex align-items-center justify-content-between">
                     <h5 class="mb-0">Tambah Data Pengumuman</h5>
-                    <a href="{{route('pengumuman.index')}}" class="btn btn-sm btn-primary"
+                    <a href="{{route('berita.index')}}" class="btn btn-sm btn-primary"
                         style="float: right">Kembali</a>
                 </div>
                 <div class="card-body">
-                    <form action="{{route('pengumuman.store')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('berita.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="basic-default-name">Judul Pengumuman</label>
+                            <label class="col-sm-2 col-form-label" for="basic-default-name">Judul Berita</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control @error('judul_pengumuman') is-invalid @enderror"
-                                    name="judul_pengumuman" id="judul_pengumuman">
-                                @error('judul_pengumuman')
+                                <input type="text" class="form-control @error('judul_berita') is-invalid @enderror"
+                                    name="judul_berita" id="judul_berita">
+                                @error('judul_berita')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -34,8 +34,8 @@
                                 {{-- <textarea type="text"
                                     class="form-control @error('deskripsi_pengumuman') is-invalid @enderror"
                                     name="deskripsi_pengumuman" id="deskripsi"></textarea> --}}
-                                    <textarea name="deskripsi_pengumuman" id="deskripsi_pengumuman" cols="30" rows="10"></textarea>
-                                @error('deskripsi_pengumuman')
+                                    <textarea name="deskripsi" id="deskripsi_pengumuman" cols="30" rows="10"></textarea>
+                                @error('deskripsi')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

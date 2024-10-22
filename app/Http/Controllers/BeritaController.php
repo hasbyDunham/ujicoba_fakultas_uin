@@ -3,19 +3,50 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berita;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
 class BeritaController extends Controller
 {
+    public function getBeritaById(Request $request) {
+    //     // \Log::info('ID yang diterima: ' . $id);
+   // dd($request->id);
+        $response = Http::get('https://uinsgd.ac.id/wp-json/wp/v2/posts/' . $request->id);
+        // dd($response);
+         //$berita = Berita::findOrFail($request->id);
+         $berita = $response->json();
+         return view('detail', ['berita' => $berita]);
+    }
+
+
+
+
 
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $response = Http::get('https://uinsgd.ac.id/wp-json/wp/v2/posts');
-        $berita = $response->json(); // Mengambil data sebagai array
+        // $response = Http::get('https://uinsgd.ac.id/wp-json/wp/v2/posts');
+        // $plainText = strip_tags($response);
+
+        // return view('berita.index', [ "data" => $response->collect(), $plainText]);
+        // $berita = $response->json(); // Mengambil data sebagai array
+        // return view('berita.index', compact('berita'));
+    //     $client = new Client();
+    //     $url = "https://uinsgd.ac.id/wp-json/wp/v2/posts";
+    //     $response = $client->request('GET', $url);
+    //     $content = $response->getBody()->getContents();
+    //     $contentArray = json_decode($content, true);
+    //     $data = $contentArray['data'];
+    //     if (is_array($contentArray)) {
+    //     return view('berita.index', ['data' => $contentArray]); // Langsung kirim $contentArray
+    // } else {
+    //     // Tangani error jika tidak sesuai dengan yang diharapkan
+    //     return view('berita.index', ['data' => []]); // Atau tampilkan pesan error
+    // }
+        $berita = Berita::latest()->get();
         return view('berita.index', compact('berita'));
     }
 

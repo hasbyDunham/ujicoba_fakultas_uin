@@ -7,9 +7,12 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 
-Route::get('/', function () {
+Route::get('beranda', function () {
     return view('welcome');
 });
+
+Route::get('berita/{id}', 'App\Http\Controllers\BeritaController@getBeritaById');
+// Route::get('berita{id}', [BeritaController::class, 'getBeritaById']);
 
 Auth::routes(
     ['register' => false]
@@ -27,6 +30,9 @@ Route::group(['prefix'=>'admin', 'middleware'=>['auth']],function(){
 
 Route::get('ck', function () {
     return view('ck');
+});
+Route::get('detail', function () {
+    return view('detail');
 });
 
 // Route::get('/comments', [CommentController::class, 'index']);
