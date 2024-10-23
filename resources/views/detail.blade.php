@@ -34,41 +34,7 @@
                     https://uinsgd.ac.id/wp-content/uploads/2024/10/1728298036-650x366.jpg 650w"
                     sizes="(max-width: 1600px) 100vw, 1600px"> --}}
 
-                <p class="my-4">{{ $berita['content']['rendered'] ?? 'No Content' }}
-                </p>
-                <p class="my-4">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                    and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-                    leap into electronic
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                    and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-                    leap into electronic
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                    and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-                    leap into electronic
-                </p>
-                <p class="my-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                    has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy type and
-                    scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-                    leap into electronic
-                    Lorem Ipsum is simply dummy
-                </p>
-                <p class="my-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                    has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy type and
-                    scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-                    leap into electronic
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been ther
-                    took It has survived not only five centuries, but also the leap into electronic
-                </p>
-                <p class="my-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                    has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy type and
-                    scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-                    leap into electronic
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been ther
-                    took It has survived not only five centuries, but also the leap into electronic
+                <p class="my-4">{{ strip_tags($berita['content']['rendered']) ?? 'No Content' }}
                 </p>
                 <p class="my-4">{{ $berita['yoast_head_json']['article_published_time'] }}
                 </p>
@@ -78,29 +44,6 @@
                     <div class="tab-content">
                     </div>
                 </div>
-                {{-- <div class="bg-light rounded p-4 my-4">
-                    <h4 class="mb-4">Tinggalkan Balasan</h4>
-                    <form action="#">
-                        <div class="row g-4">
-                            <div class="col-lg-6">
-                                <input type="text" class="form-control py-3" placeholder="Nama Lengkap">
-                            </div>
-                            <div class="col-lg-6">
-                                <input type="text" class="form-control py-3" placeholder="Situs Web">
-                            </div>
-                            <div class="col-lg-6">
-                                <input type="email" class="form-control py-3" placeholder="Email">
-                            </div>
-                            <div class="col-12">
-                                <textarea class="form-control" name="textarea" id="" cols="30" rows="7"
-                                    placeholder="Komentar"></textarea>
-                            </div>
-                            <div class="col-12">
-                                <button class="form-control btn btn-success py-3" type="button">Kirim Komentar</button>
-                            </div>
-                        </div>
-                    </form>
-                </div> --}}
             </div>
             @php
                 $response = Http::get('https://uinsgd.ac.id/wp-json/wp/v2/posts');
