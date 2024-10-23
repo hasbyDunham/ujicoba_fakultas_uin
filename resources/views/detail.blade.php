@@ -34,7 +34,7 @@
                     https://uinsgd.ac.id/wp-content/uploads/2024/10/1728298036-650x366.jpg 650w"
                     sizes="(max-width: 1600px) 100vw, 1600px"> --}}
 
-                <p class="my-4">{{ strip_tags($berita['content']['rendered']) ?? 'No Content' }}
+                <p class="my-4">{!! nl2br(strip_tags($berita['content']['rendered'])) ?? 'No Content' !!}
                 </p>
                 <p class="my-4">{{ $berita['yoast_head_json']['article_published_time'] }}
                 </p>
