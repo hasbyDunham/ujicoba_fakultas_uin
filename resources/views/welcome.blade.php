@@ -69,9 +69,12 @@
                 <div class="carousel-item active">
                     <img src="{{ asset('frontend/img/uin2.jpg') }}" class="img-fluid" alt="Image">
                     <div class="carousel-caption">
+                        {{-- <img src="{{ asset('frontend/img/DEKAN-FEBI2.png') }}" alt="image"
+                            class="img-fluid display-5 wow fadeInUp" data-wow-delay="0.3s"
+                            style="max-width: 40%; max-height: 100%; margin-left: 55%; margin-top: 10%"> --}}
                         <img src="{{ asset('frontend/img/DEKAN-FEBI2.png') }}" alt="image"
                             class="img-fluid display-5 wow fadeInUp" data-wow-delay="0.3s"
-                            style="max-width: 40%; max-height: 100%; margin-left: 55%; margin-top: 10%">
+                            style="width: 100%; height: auto; object-fit: contain; margin-left: 55%; max-height: 100%;">
                         <div class="text-start p-4" style="max-width: 50%; margin-right: 40%">
                             <h1 class="display-3 text-capitalize text-white mb-3 wow fadeInUp" data-wow-delay="0.3s">
                                 Fakultas Ekonomi dan Bisnis Islam</h1>
@@ -276,7 +279,7 @@
                                     alt="Image" style="width: 150px; height: 100px">
                             </div>
                             <div class="ms-4">
-                                <h4><b>{{ $item->judul_pengumuman }}</b></h4>
+                                <h4><b><a href="pengumuman/{{$item->id}}">{{ $item->judul_pengumuman }}</a></b></h4>
                             </div>
                         </div>
                         <hr class="w-100">

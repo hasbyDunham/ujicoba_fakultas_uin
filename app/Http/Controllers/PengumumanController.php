@@ -13,6 +13,14 @@ class PengumumanController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+     public function getPengumumanById($id)
+    {
+        $pengumuman = Pengumuman::findOrFail($id);
+        return view('detailP', compact('pengumuman'));
+    }
+
+
     public function index()
     {
         $pengumuman = Pengumuman::latest()->get();

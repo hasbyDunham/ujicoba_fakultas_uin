@@ -12,6 +12,7 @@ Route::get('beranda', function () {
 });
 
 Route::get('berita/{id}', 'App\Http\Controllers\BeritaController@getBeritaById');
+Route::get('pengumuman/{id}', 'App\Http\Controllers\PengumumanController@getPengumumanById');
 // Route::get('berita{id}', [BeritaController::class, 'getBeritaById']);
 
 Auth::routes(
@@ -33,6 +34,9 @@ Route::get('ck', function () {
 });
 Route::get('detail', function () {
     return view('detail');
+});
+Route::get('detailP', function () {
+    return view('detailP');
 });
 
 // Route::get('/comments', [CommentController::class, 'index']);
